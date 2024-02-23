@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Editar datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo 2.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Número</th>
+            <th>Nombre</th>
+            <th>Cuarto</th>
+            <th>Camilla</th>
+            <th>Especialidad</th>
+            <th>Acciones</th>
+        </tr>
+        {% for row in data %}
+            <tr id="row-{{ row['ID'] }}">
+                <form action="{{ url_for('editar_post') }}" method="post" target="_self">
+                    <input type="hidden" name="id" value="{{ row['ID'] }}">
+                    <td>{{ row['ID'] }}</td>
+                    <td><input type="text" name="nombre" value="{{ row['Nombre'] }}"></td>
+                    <td><input type="text" name="cuarto" value="{{ row['Cuarto'] }}"></td>
+                    <td><input type="text" name="camilla" value="{{ row['Camilla'] }}"></td>
+                    <td><input type="text" name="especialidad" value="{{ row['Especialidad'] }}"></td>
+                    <td>
+                        <input type="submit" value="Guardar">
+                        <button type="button" class="delete-button" data-id="{{ row['ID'] }}" data-especialidad="{{ row['Especialidad'] }}">Eliminar</button>
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+    </table>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+    var socket = io();
+    socket.on('update data', function(data) {
+        // Buscar la fila con el ID correspondiente
+        var row = $('#row-' + data.ID);
+        // Actualizar los campos de la fila con los nuevos datos
+        row.find('input[name="nombre"]').val(data.Nombre);
+        row.find('input[name="cuarto"]').val(data.Cuarto);
+        row.find('input[name="camilla"]').val(data.Camilla);
+        row.find('input[name="especialidad"]').val(data.Especialidad);
+    });
+    </script>
+</body>
+</html>

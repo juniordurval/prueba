@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ingresar datos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo 2.css') }}">
+</head>
+<body>
+    <form action="{{ url_for('ingresar') }}" method="post" target="_self">
+        
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre"><br>
+        
+        <label for="cuarto">Cuarto:</label><br>
+        <select id="cuarto" name="cuarto">
+            {% for i in range(1, 51) %}
+                <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+        </select><br>
+        
+        <label for="camilla">Camilla:</label><br>
+        <select id="camilla" name="camilla">
+            {% for i in range(1, 51) %}
+                <option value="{{i}}">{{i}}</option>
+            {% endfor %}
+        </select><br>
+        
+        <label for="especialidad">Especialidad:</label><br>
+        <select id="especialidad" name="especialidad">
+            <option value="Internados">Internados</option>
+            <option value="Cirujias">Cirujias</option>
+            <option value="Pediatria">Pediatria</option>
+        </select><br>
+        
+        <input type="submit" value="Enviar">
+    </form>
+    <a href="{{ url_for('editar') }}" class="button">Editar</a>
+</body>
+</html>

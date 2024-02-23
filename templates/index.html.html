@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/estilo 1.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="tables-container">
+        <!-- Aquí se agregarán las tablas desde el servidor -->
+    </div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <a id="link" href="{{ url_for('ingresar') }}">by: nickpou</a>
+
+</body>
+</html>

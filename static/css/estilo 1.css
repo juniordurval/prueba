@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #b3d9ff;
+}
+
+#tables-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+#tables-container table {
+    background-color: #75ace4;
+    color: white;
+    border-collapse: separate; 
+    border-spacing: 0 15px; 
+    width: 100%; 
+    display: inline-block;
+    vertical-align: top;
+    min-width: 100%;
+}
+
+#tables-container table td, #tables-container table th {
+    border: none; 
+    padding: 10px;
+    text-align: center;
+    font-size: 2em; /* Aumenta el tamaño de las letras */
+}
+
+#tables-container table th {
+    font-size: 2.5em; /* Aumenta el tamaño de las letras del encabezado */
+    position: sticky;
+    top: 0;
+    background-color: transparent; 
+}
+
+#tables-container table td {
+    font-size: 2em; /* Aumenta el tamaño de las letras del contenido */
+    overflow-wrap: break-word;
+}
+
+#tables-container table td:nth-child(1), #tables-container table th:nth-child(1) {
+    width: 10%; /* Números */
+}
+
+#tables-container table td:nth-child(2), #tables-container table th:nth-child(2) {
+    width: 45%; /* Nombre */
+}
+
+#tables-container table td:nth-child(3), #tables-container table th:nth-child(3),
+#tables-container table td:nth-child(4), #tables-container table th:nth-child(4) {
+    width: 10%; /* Camilla y Cuarto */
+}
+
+#tables-container table td:nth-child(5), #tables-container table th:nth-child(5) {
+    width: 25%; /* Especialidad */
+}
+
+#link {
+    position: fixed; /* Cambia la posición a fija */
+    bottom: 20px; /* Posición desde el borde inferior */
+    right: 20px; /* Posición desde el borde derecho */
+    background-color: #00cc00;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px; /* Añade un poco de relleno alrededor del texto */
+}
+
+img, video {
+    object-fit: cover;
+}
+
+#tables-container table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+#tables-container table th, #tables-container table td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
